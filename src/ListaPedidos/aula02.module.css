@@ -1,0 +1,28 @@
+.navContainer {
+    background-color: rgb(207, 207, 207);
+    padding: 1rem;
+}
+
+.navBody{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alignCenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.customContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 3rem;
+}
+
+.cardapioDescricao {
+ padding: 0 1rem;
+}
