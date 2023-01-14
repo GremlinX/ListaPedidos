@@ -4,8 +4,9 @@ import styles from './aula02.module.css'
 
 function Pedidos({ hookVariablePedidos, hookVariableValor, apagarLista, hookFunctionLista, hookFunctionValor }) {
     
-    const apagaItem = (index, e) => {
-        hookFunctionLista(hookVariablePedidos.filter((v, i) => i !== index));
+    const apagaItemIndividual = (index, e) => {
+        // Lê-se: "Manter aqueles cujo regra seja => regra"
+        hookFunctionLista(hookVariablePedidos.filter((data, i) => i !== index));
         const itemPreco = e.target.value;
         hookFunctionValor(hookVariableValor - itemPreco);
     }
@@ -26,14 +27,14 @@ function Pedidos({ hookVariablePedidos, hookVariableValor, apagarLista, hookFunc
                             </tr>
                         </thead>
                         <tbody>
-                        {hookVariablePedidos.map(({id, nome, preco, descricao}, index) => (
-                            <tr key={id}>
+                        {hookVariablePedidos.map(({ id, nome, preco, descricao }, index) => (
+                            <tr key={index}>
                                 <td>{index+1}</td>
                                 <td>{id}</td>
                                 <td>{nome}</td>
                                 <td>{preco}</td>
                                 <td className="text-center">
-                                    <Button variant="danger" size="sm" value={preco} onClick={e => apagaItem(index, e)}>Excluir</Button>
+                                    <Button variant="danger" size="sm" value={preco} onClick={e => apagaItemIndividual(index, e)}>Excluir</Button>
                                 </td>
                             </tr>
                         ))}
